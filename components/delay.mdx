@@ -1,0 +1,56 @@
+---
+title: 'Delay Block'
+description: 'How Delay block works'
+icon: 'clock'
+---
+<Warning>Use this block to introduce pauses in your workflow execution.</Warning>
+
+## Delay
+
+### Description:
+Pauses the workflow for a specified duration before continuing to the next block.
+
+Key Parameters:
+
+> **data.action** - `"delay"`, indicating that the block introduces a time delay.
+
+> **params.delay** - The duration of the delay.
+
+> **params.timeUnit** - The unit of time (e.g., `"Seconds"`, `"Minutes"`).
+
+Connections:
+
+- **Input:** Accepts the preceding node's execution.
+- **Output:** Passes execution to the next node after the specified delay.
+
+Use Cases:
+
+- Adding a wait time before executing the next step.
+- Throttling API calls to prevent exceeding rate limits.
+
+### Code Example
+
+1. **block_id** - Unique identifier for the Delay block.
+2. **connected_block_id** - Unique identifier for the next block after the delay.
+
+```json
+{
+  "_id": "block_id",
+  "version": "1.0",
+  "type": "DELAY",
+  "payload": {
+    "name": "delay-0",
+    "data": {
+      "action": "delay",
+      "params": {
+        "delay": 5,
+        "timeUnit": "Seconds"
+      }
+    }
+  },
+  "connection": {
+    "nodes": [
+      "connected_block_id"
+    ]
+  }
+}

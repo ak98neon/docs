@@ -56,29 +56,27 @@ Use Cases:
     "data": {
       "action": "condition",
       "params": {
-        "params": {
-          "trueNode": "connected_true_block_id",
-          "falseNode": "connected_false_block_id",
-          "condition": [
-            {
-              "id": "condition_id",
-              "unit": [
-                {
-                  "id": "unit_id",
-                  "left": {
-                    "value": "1",
-                    "type": "string"
-                  },
-                  "right": {
-                    "value": "1",
-                    "type": "string"
-                  },
-                  "action": "equal"
-                }
-              ]
-            }
-          ]
-        }
+        "trueNode": "connected_true_block_id",
+        "falseNode": "connected_false_block_id",
+        "condition": [
+          {
+            "id": "condition_id",
+            "unit": [
+              {
+                "id": "unit_id",
+                "left": {
+                  "value": "1",
+                  "type": "string"
+                },
+                "right": {
+                  "value": "1",
+                  "type": "string"
+                },
+                "action": "equal"
+              }
+            ]
+          }
+        ]
       }
     }
   },

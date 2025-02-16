@@ -1,0 +1,47 @@
+---
+title: 'Error Block'
+description: 'How Error block works'
+icon: 'circle-exclamation'
+---
+<Warning>This block should be used to catch errors and handle failures in a workflow.</Warning>
+
+## Error
+
+### Description:
+Handles error scenarios in the pipeline.
+
+Key Parameters:
+
+- No specific parameters required.
+
+Connections:
+
+- **Input:** Receives execution when an error occurs.
+- **No Output:** This is a terminal block.
+
+Use Cases:
+
+- Capturing and handling workflow failures.
+- Defining fallback mechanisms when a step fails.
+
+### Code Example
+
+1. **block_id** - Unique identifier for the Error block.
+
+```json
+{
+  "_id": "block_id",
+  "version": "1.0",
+  "type": "ERROR",
+  "payload": {
+    "name": "error-0",
+    "data": {
+      "action": "",
+      "params": {
+      }
+    }
+  },
+  "connection": {
+    "nodes": []
+  }
+}

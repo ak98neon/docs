@@ -1,0 +1,48 @@
+---
+title: 'Success Block'
+description: 'How Success block works'
+icon: 'circle-check'
+---
+
+<Info>This block marks the successful completion of a workflow.</Info>
+
+## Success
+
+### Description:
+Indicates that the pipeline execution has been completed successfully.
+
+Key Parameters:
+
+- No additional parameters required.
+
+Connections:
+
+- **Input:** Receives execution from preceding blocks.
+- **No Output:** This is a terminal block.
+
+Use Cases:
+
+- Signaling that a process has finished correctly.
+- Ending a workflow when all operations complete successfully.
+
+### Code Example
+
+1. **block_id** - Unique identifier for the Error block.
+
+```json
+{
+  "_id": "block_id",
+  "version": "1.0",
+  "type": "ERROR",
+  "payload": {
+    "name": "error-0",
+    "data": {
+      "action": "",
+      "params": {
+      }
+    }
+  },
+  "connection": {
+    "nodes": []
+  }
+}

@@ -24,6 +24,9 @@
             "pages": [
               "components/trigger",
               "components/boolean_condition",
+              "components/delay",
+              "components/error",
+              "components/success",
               "components/full_pipeline"
             ]
           }

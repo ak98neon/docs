@@ -27,6 +27,7 @@ Initiating workflows from external events **synchronously** or **asynchronously*
 
 1. block_id - Unique identifier for the block.
 2. connected_block_id - Unique identifier for the connected block.
+3. param_id - Unique identifier for the parameter.
 
 ```json
 {
@@ -41,6 +42,7 @@ Initiating workflows from external events **synchronously** or **asynchronously*
         "params": {
           "triggerParams": [
             {
+              "id": "param_id",
               "key": "key",
               "value": "value"
             }
