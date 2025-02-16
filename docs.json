@@ -22,8 +22,9 @@
           {
             "group": "Components",
             "pages": [
-              "components/full_pipeline",
-              "components/trigger"
+              "components/trigger",
+              "components/boolean_condition",
+              "components/full_pipeline"
             ]
           }
         ]
