@@ -1,47 +1,81 @@
 ---
 title: 'Boolean Condition Block'
 description: 'How Boolean Condition block works'
-icon: 'cube'
+icon: 'check'
 ---
+<Warning>This block is essential for branching your workflow based on conditional logic.</Warning>
 
 ## Boolean Condition
 
 ### Description:
-Starts the pipeline execution.
+Evaluates boolean expressions and routes the workflow based on the evaluation result.
 
 Key Parameters:
 
-> **data.action** - Defines the trigger action (default is empty).
+> **data.action** - Typically set to `"condition"` to indicate the evaluation action.
 
-> **params.triggerParams** - Array for initial parameters.
+> **params.condition** - Array of condition objects that define the logic to evaluate.
+
+> **params.trueNode** - Identifier for the node to execute if the condition evaluates to true.
+
+> **params.falseNode** - Identifier for the node to execute if the condition evaluates to false.
+
+Possible unit actions:
+
+1. **equal** - Compares two values for equality.
+2. **more** - Compares two values to check if the left value is greater than the right value.
+3. **less** - Compares two values to check if the left value is less than the right value.
+4. **more or equal** - Compares two values to check if the left value is greater than or equal to the right value.
+5. **less or equal** - Compares two values to check if the left value is less than or equal to the right value.
+6. **not equal** - Compares two values to check if they are not equal.
+
 Connections:
 
-**Output Only**: Acts as the source node.
+- **Input:** Receives data to be evaluated.
+- **Outputs:** Provides two branches — one for a true outcome and another for a false outcome.
 
 Use Cases:
 
-Initiating workflows from external events **synchronously** or **asynchronously**.
+- Implementing decision logic within workflows, e.g., routing data based on status or other criteria.
 
 ### Code Example
 
-1. block_id - Unique identifier for the block.
-2. connected_block_id - Unique identifier for the connected block.
+1. **block_id** - Unique identifier for the Boolean Condition block.
+2. **connected_true_block_id** - Unique identifier for the block to follow if the condition is true.
+3. **connected_false_block_id** - Unique identifier for the block to follow if the condition is false.
+4. **condition_id** - Unique identifier for the condition.
+5. **unit_id** - Unique identifier for the unit.
 
 ```json
 {
   "_id": "block_id",
   "version": "1.0",
-  "type": "TRIGGER",
+  "type": "BOOLEAN_CONDITION",
   "payload": {
-    "name": "trigger-0",
+    "name": "boolean-condition-0",
     "data": {
-      "action": "",
+      "action": "condition",
       "params": {
         "params": {
-          "triggerParams": [
+          "trueNode": "connected_true_block_id",
+          "falseNode": "connected_false_block_id",
+          "condition": [
             {
-              "key": "key",
-              "value": "value"
+              "id": "condition_id",
+              "unit": [
+                {
+                  "id": "unit_id",
+                  "left": {
+                    "value": "1",
+                    "type": "string"
+                  },
+                  "right": {
+                    "value": "1",
+                    "type": "string"
+                  },
+                  "action": "equal"
+                }
+              ]
             }
           ]
         }
@@ -50,8 +84,8 @@ Initiating workflows from external events **synchronously** or **asynchronously*
   },
   "connection": {
     "nodes": [
-      "connected_block_id"
+      "connected_true_block_id",
+      "connected_false_block_id"
     ]
   }
 }
-```
