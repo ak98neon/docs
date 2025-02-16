@@ -1,0 +1,58 @@
+---
+title: 'Trigger Block'
+description: 'How Trigger block works'
+icon: 'code'
+---
+<Warning>Mandatory element for any workflow</Warning>
+
+## Trigger
+
+### Description:
+Starts the pipeline execution.
+
+Key Parameters:
+
+> **data.action** - Defines the trigger action (default is empty).
+
+> **params.triggerParams** - Array for initial parameters.
+Connections:
+
+**Output Only**: Acts as the source node.
+
+Use Cases:
+
+Initiating workflows from external events **synchronously** or **asynchronously**.
+
+### Code Example
+
+1. block_id - Unique identifier for the block.
+2. connected_block_id - Unique identifier for the connected block.
+
+```json
+{
+  "_id": "block_id",
+  "version": "1.0",
+  "type": "TRIGGER",
+  "payload": {
+    "name": "trigger-0",
+    "data": {
+      "action": "",
+      "params": {
+        "params": {
+          "triggerParams": [
+            {
+              "key": "key",
+              "value": "value"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "connection": {
+    "nodes": [
+      "connected_block_id"
+    ]
+  }
+}
+```
