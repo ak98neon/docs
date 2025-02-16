@@ -1,0 +1,1041 @@
+---
+title: "Pipeline Nodes Technical Documentation"
+---
+
+# Pipeline Nodes Technical Documentation
+
+This document explains the available pipeline nodes used to construct dynamic workflows. It includes a full request body example that you can customize as needed.
+
+## Full Request Body Example
+
+Below is the complete JSON request body example:
+
+```json
+{
+  "id": "8bdda66c-935e-4881-81f8-b4f3ea187275",
+  "createdAt": 1737331840421,
+  "modifiedAt": 1739711895024,
+  "version": 1064,
+  "name": "Test",
+  "chain": [
+    {
+      "id": "7b6ad8dc-fe97-44ec-81f9-9c44ac5ab0d8",
+      "version": "1.0",
+      "type": "TRIGGER",
+      "payload": {
+        "name": "trigger-0",
+        "data": {
+          "action": "",
+          "params": {
+            "params": {
+              "triggerParams": []
+            }
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "7b6ad8dc-fe97-44ec-81f9-9c44ac5ab0d8",
+        "name": "trigger-0",
+        "description": "trigger-0",
+        "label": "Trigger 0",
+        "type": "TRIGGER",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/trigger-icon.svg",
+        "coordinateX": 973,
+        "coordinateY": 791,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Bottom"
+            ],
+            "isTarget": false,
+            "isSource": true
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "9a343cea-d0f8-4537-87b6-ad0ed8426ac2",
+      "version": "1.0",
+      "type": "BOOLEAN_CONDITION",
+      "payload": {
+        "name": "boolean-condition-0",
+        "data": {
+          "action": "condition",
+          "params": {
+            "params": {
+              "trueNode": "",
+              "falseNode": "",
+              "condition": []
+            }
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "9a343cea-d0f8-4537-87b6-ad0ed8426ac2",
+        "name": "boolean-condition-0",
+        "description": "boolean-condition-0",
+        "label": "Boolean Condition 0",
+        "type": "BOOLEAN_CONDITION",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/boolean_cond.svg",
+        "coordinateX": 811,
+        "coordinateY": 911,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 2,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          },
+          {
+            "countConnection": 1,
+            "position": [
+              0.3,
+              1,
+              0,
+              1
+            ],
+            "isTarget": false,
+            "isSource": true
+          },
+          {
+            "countConnection": 1,
+            "position": [
+              0.7,
+              1,
+              0,
+              1
+            ],
+            "isTarget": false,
+            "isSource": true
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "fe692d39-d7c1-4ca1-8a81-347d5ee5a730",
+      "version": "1.0",
+      "type": "DELAY",
+      "payload": {
+        "name": "delay-0",
+        "data": {
+          "action": "delay",
+          "params": {
+            "params": {
+              "delay": 0,
+              "timeUnit": "Seconds"
+            }
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "fe692d39-d7c1-4ca1-8a81-347d5ee5a730",
+        "name": "delay-0",
+        "description": "delay-0",
+        "label": "Delay 0",
+        "type": "DELAY",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/delay-icon.svg",
+        "coordinateX": 1066,
+        "coordinateY": 887,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          },
+          {
+            "countConnection": 1,
+            "position": [
+              "Bottom"
+            ],
+            "isTarget": false,
+            "isSource": true
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "9a2f3cba-1760-46e6-a866-80e870569804",
+      "version": "1.0",
+      "type": "SUCCESS",
+      "payload": {
+        "name": "success-0",
+        "data": {
+          "action": "",
+          "params": {
+            "params": {}
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "9a2f3cba-1760-46e6-a866-80e870569804",
+        "name": "success-0",
+        "description": "success-0",
+        "label": "Success 0",
+        "type": "SUCCESS",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/success-icon.svg",
+        "coordinateX": 734,
+        "coordinateY": 1027,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "01de1965-d8f5-48fc-84f9-00c10adf7e75",
+      "version": "1.0",
+      "type": "ERROR",
+      "payload": {
+        "name": "error-0",
+        "data": {
+          "action": "",
+          "params": {
+            "params": {}
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "01de1965-d8f5-48fc-84f9-00c10adf7e75",
+        "name": "error-0",
+        "description": "error-0",
+        "label": "Error 0",
+        "type": "ERROR",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/error-icon.svg",
+        "coordinateX": 988,
+        "coordinateY": 1037,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "bcc37e78-bc28-45ce-9700-f574980d3d87",
+      "version": "1.0",
+      "type": "SCRIPT",
+      "payload": {
+        "name": "script-0",
+        "data": {
+          "action": "",
+          "params": {
+            "params": {
+              "lang": "",
+              "responseField": "",
+              "code": ""
+            }
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "bcc37e78-bc28-45ce-9700-f574980d3d87",
+        "name": "script-0",
+        "description": "script-0",
+        "label": "Script 0",
+        "type": "SCRIPT",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/script-icon.svg",
+        "coordinateX": 798,
+        "coordinateY": 1153,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          },
+          {
+            "countConnection": 1,
+            "position": [
+              "Bottom"
+            ],
+            "isTarget": false,
+            "isSource": true
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "daa2c690-f25f-4fdc-ae79-402c7f152b10",
+      "version": "1.0",
+      "type": "BRANCH",
+      "payload": {
+        "name": "branch-0",
+        "data": {
+          "action": "",
+          "params": {
+            "params": {}
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "daa2c690-f25f-4fdc-ae79-402c7f152b10",
+        "name": "branch-0",
+        "description": "branch-0",
+        "label": "Branch 0",
+        "type": "BRANCH",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/branches-icon.svg",
+        "coordinateX": 1023,
+        "coordinateY": 1145,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          },
+          {
+            "countConnection": 3,
+            "position": [
+              "Bottom"
+            ],
+            "isTarget": false,
+            "isSource": true
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "d1a46571-debb-4773-80b2-6e4f4c8a8c15",
+      "version": "1.0",
+      "type": "CSV_READER",
+      "payload": {
+        "name": "csv-reader-0",
+        "data": {
+          "action": "",
+          "params": {
+            "params": {}
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "d1a46571-debb-4773-80b2-6e4f4c8a8c15",
+        "name": "csv-reader-0",
+        "description": "csv-reader-0",
+        "label": "CSV Reader 0",
+        "type": "CSV_READER",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/document-icon.svg",
+        "coordinateX": 784,
+        "coordinateY": 1265,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          },
+          {
+            "countConnection": 1,
+            "position": [
+              "Bottom"
+            ],
+            "isTarget": false,
+            "isSource": true
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "394c616c-36d2-47c7-a5f6-575be7210b49",
+      "version": "1.0",
+      "type": "DATA_MAPPER",
+      "payload": {
+        "name": "data-mapper-0",
+        "data": {
+          "action": "",
+          "params": {
+            "params": {}
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "394c616c-36d2-47c7-a5f6-575be7210b49",
+        "name": "data-mapper-0",
+        "description": "data-mapper-0",
+        "label": "Data Mapper 0",
+        "type": "DATA_MAPPER",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/mix-icon.svg",
+        "coordinateX": 758,
+        "coordinateY": 1379,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          },
+          {
+            "countConnection": 1,
+            "position": [
+              "Bottom"
+            ],
+            "isTarget": false,
+            "isSource": true
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "823a787c-9166-4cd2-963f-56ffd3fa2101",
+      "version": "1.0",
+      "type": "DATA_STORAGE",
+      "payload": {
+        "name": "data-storage-0",
+        "data": {
+          "action": "",
+          "params": {
+            "params": {}
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "823a787c-9166-4cd2-963f-56ffd3fa2101",
+        "name": "data-storage-0",
+        "description": "data-storage-0",
+        "label": "Data Storage 0",
+        "type": "DATA_STORAGE",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/dataSet-icon.svg",
+        "coordinateX": 1030,
+        "coordinateY": 1400,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          },
+          {
+            "countConnection": 1,
+            "position": [
+              "Bottom"
+            ],
+            "isTarget": false,
+            "isSource": true
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "c8ed1a27-b6f3-43f7-b712-bacd748b900d",
+      "version": "1.0",
+      "type": "FTP_CLIENT",
+      "payload": {
+        "name": "ftp-client-0",
+        "data": {
+          "action": "",
+          "params": {
+            "params": {}
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "c8ed1a27-b6f3-43f7-b712-bacd748b900d",
+        "name": "ftp-client-0",
+        "description": "ftp-client-0",
+        "label": "FTP Client 0",
+        "type": "FTP_CLIENT",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/ftp-icon.svg",
+        "coordinateX": 684,
+        "coordinateY": 1496,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          },
+          {
+            "countConnection": 1,
+            "position": [
+              "Bottom"
+            ],
+            "isTarget": false,
+            "isSource": true
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "32157989-d54d-4fc3-aa87-200165ff3b81",
+      "version": "1.0",
+      "type": "HTTP_CLIENT",
+      "payload": {
+        "name": "http-client-0",
+        "data": {
+          "action": "",
+          "params": {
+            "params": {
+              "requestUrl": "",
+              "httpMethod": "POST",
+              "requestParams": [],
+              "requestHeaders": [
+                {
+                  "id": "6a0e6b1d-c8d4-49a0-8530-f04fb6385fbb",
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "id": "238ee540-cada-43d0-8535-58bf8ddcd933",
+                  "key": "Accept",
+                  "value": "*/*"
+                },
+                {
+                  "id": "9bc225e5-f6f6-4f96-833e-e2c5ac7db8ce",
+                  "key": "Accept-Encoding",
+                  "value": "gzip, deflate, br"
+                },
+                {
+                  "id": "ddb3344b-e805-4cda-9529-7aa928de698f",
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "authorizationParams": [],
+              "requestBody": "",
+              "responseField": "",
+              "rawType": "JSON"
+            }
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "32157989-d54d-4fc3-aa87-200165ff3b81",
+        "name": "http-client-0",
+        "description": "http-client-0",
+        "label": "HTTP Client 0",
+        "type": "HTTP_CLIENT",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/internet-icon.svg",
+        "coordinateX": 970,
+        "coordinateY": 1509,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          },
+          {
+            "countConnection": 1,
+            "position": [
+              "Bottom"
+            ],
+            "isTarget": false,
+            "isSource": true
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "a7c5adea-fbc2-4c0c-8f49-4f60b43c3042",
+      "version": "1.0",
+      "type": "EMAIL_CLIENT",
+      "payload": {
+        "name": "email-client-0",
+        "data": {
+          "action": "",
+          "params": {
+            "params": {}
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "a7c5adea-fbc2-4c0c-8f49-4f60b43c3042",
+        "name": "email-client-0",
+        "description": "email-client-0",
+        "label": "Email Client 0",
+        "type": "EMAIL_CLIENT",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/email.svg",
+        "coordinateX": 587,
+        "coordinateY": 1299,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          },
+          {
+            "countConnection": 1,
+            "position": [
+              "Bottom"
+            ],
+            "isTarget": false,
+            "isSource": true
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "dfc3dce8-a54b-4963-b444-728035f64288",
+      "version": "1.0",
+      "type": "AI_VECTOR_SEARCH",
+      "payload": {
+        "name": "vector-search-0",
+        "data": {
+          "action": "",
+          "params": {
+            "params": {
+              "query": "",
+              "limit": 5,
+              "responseField": ""
+            }
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "dfc3dce8-a54b-4963-b444-728035f64288",
+        "name": "vector-search-0",
+        "description": "vector-search-0",
+        "label": "Vector Search 0",
+        "type": "AI_VECTOR_SEARCH",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/vector_search.svg",
+        "coordinateX": 650,
+        "coordinateY": 1132,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          },
+          {
+            "countConnection": 1,
+            "position": [
+              "Bottom"
+            ],
+            "isTarget": false,
+            "isSource": true
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "57b67c1b-970c-46b5-85f6-6ad2dda12aca",
+      "version": "1.0",
+      "type": "AI_LLM_CALL",
+      "payload": {
+        "name": "ai-call-0",
+        "data": {
+          "action": "",
+          "params": {
+            "params": {
+              "model": "gpt-4o",
+              "prompt": "",
+              "responseField": ""
+            }
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "57b67c1b-970c-46b5-85f6-6ad2dda12aca",
+        "name": "ai-call-0",
+        "description": "ai-call-0",
+        "label": "AI Call 0",
+        "type": "AI_LLM_CALL",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/ai_call.svg",
+        "coordinateX": 553,
+        "coordinateY": 1159,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          },
+          {
+            "countConnection": 1,
+            "position": [
+              "Bottom"
+            ],
+            "isTarget": false,
+            "isSource": true
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "1e528b00-7c2b-4c53-ad7c-e067ef07b648",
+      "version": "1.0",
+      "type": "AI_INGESTION",
+      "payload": {
+        "name": "ai-ingestion-0",
+        "data": {
+          "action": "",
+          "params": {
+            "params": {
+              "fileStorageId": "",
+              "fileExtension": "",
+              "responseField": ""
+            }
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "1e528b00-7c2b-4c53-ad7c-e067ef07b648",
+        "name": "ai-ingestion-0",
+        "description": "ai-ingestion-0",
+        "label": "AI Ingestion 0",
+        "type": "AI_INGESTION",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/ai_ingestion.svg",
+        "coordinateX": 538,
+        "coordinateY": 1409,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          },
+          {
+            "countConnection": 1,
+            "position": [
+              "Bottom"
+            ],
+            "isTarget": false,
+            "isSource": true
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "00a5b38f-5447-4dd8-9a6a-9c7ab6a8f364",
+      "version": "1.0",
+      "type": "SQL_CLIENT",
+      "payload": {
+        "name": "sql-client-0",
+        "data": {
+          "action": "",
+          "params": {
+            "params": {
+              "triggerParams": [],
+              "query": "",
+              "connectionConfig": {
+                "databaseType": "postgres",
+                "databaseName": "",
+                "databaseHost": "",
+                "databasePort": 5432,
+                "databaseUser": "",
+                "databasePassword": "",
+                "sslMode": "disable"
+              }
+            }
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "00a5b38f-5447-4dd8-9a6a-9c7ab6a8f364",
+        "name": "sql-client-0",
+        "description": "sql-client-0",
+        "label": "SQL Client 0",
+        "type": "SQL_CLIENT",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/sql.svg",
+        "coordinateX": 617,
+        "coordinateY": 1532,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          },
+          {
+            "countConnection": 1,
+            "position": [
+              "Bottom"
+            ],
+            "isTarget": false,
+            "isSource": true
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    },
+    {
+      "id": "f92d045c-6834-4597-86e6-be0561397c05",
+      "version": "1.0",
+      "type": "AI_VECTOR_CALL",
+      "payload": {
+        "name": "vectorized-ai-call-0",
+        "data": {
+          "action": "",
+          "params": {
+            "params": {
+              "query": "",
+              "responseField": ""
+            }
+          }
+        },
+        "script": null,
+        "request": null,
+        "response": null
+      },
+      "connection": {
+        "nodes": [],
+        "success": null,
+        "error": null
+      },
+      "element": {
+        "id": "f92d045c-6834-4597-86e6-be0561397c05",
+        "name": "vectorized-ai-call-0",
+        "description": "vectorized-ai-call-0",
+        "label": "Vectorized AI Call 0",
+        "type": "AI_VECTOR_CALL",
+        "image": "https://aurum-resources.s3.eu-central-1.amazonaws.com/scan-search.svg",
+        "coordinateX": 857,
+        "coordinateY": 1580,
+        "countConnection": 1,
+        "points": [
+          {
+            "countConnection": 1,
+            "position": [
+              "Top"
+            ],
+            "isTarget": true,
+            "isSource": false
+          },
+          {
+            "countConnection": 1,
+            "position": [
+              "Bottom"
+            ],
+            "isTarget": false,
+            "isSource": true
+          }
+        ]
+      },
+      "active": true,
+      "terminal": true
+    }
+  ],
+  "status": "DRAFT",
+  "folderId": "678d7bbbf92f5d3b10d63040",
+  "entrypoint": "http://localhost:8090/api/key/v1/trigger/8bdda66c-935e-4881-81f8-b4f3ea187275",
+  "description": "",
+  "projectId": "678d7bbbf92f5d3b10d6303f"
+}

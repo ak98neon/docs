@@ -22,6 +22,12 @@
             ]
           },
           {
+            "group": "Components",
+            "pages": [
+              "components/components",
+            ]
+          },
+          {
             "group": "Essentials",
             "pages": [
               "essentials/markdown",
