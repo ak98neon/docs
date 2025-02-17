@@ -27,6 +27,8 @@
               "components/delay",
               "components/error",
               "components/success",
+              "components/script",
+              "components/sql_block",
               "components/full_pipeline"
             ]
           }

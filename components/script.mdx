@@ -1,0 +1,59 @@
+---
+title: 'Script Block'
+description: 'How Script block works'
+icon: 'code'
+---
+<Info>Use this block to execute custom code within the workflow.</Info>
+
+## Script
+
+### Description:
+Executes a custom script in a specified programming language.
+
+Key Parameters:
+
+> **params.lang** - Defines the script language (e.g., `"nodejs"`).
+
+> **params.responseField** - The field in which to store the script's output.
+
+> **params.code** - The actual script code to execute.
+
+Connections:
+
+- **Input:** Receives execution from preceding blocks.
+- **Output:** Passes execution to the next block after the script runs.
+
+Use Cases:
+
+- Performing custom calculations.
+- Data transformation before sending to another system.
+- Running business logic not covered by default blocks.
+
+### Code Example
+
+1. **block_id** - Unique identifier for the Script block.
+2. **connected_block_id** - Unique identifier for the next block after script execution.
+
+```json
+{
+  "_id": "block_id",
+  "version": "1.0",
+  "type": "SCRIPT",
+  "payload": {
+    "name": "script-0",
+    "data": {
+      "action": "",
+      "params": {
+        "lang": "nodejs:14",
+        "responseField": "",
+        "code": "function main(args) {\r\n  let name = args.name || 'stranger'\r\n  let greeting = 'Hello ' + name + '!'\r\n  console.log(greeting)\r\n  return {\"body\": greeting}\r\n}\r\n",
+        "version": "0.0.1"
+      }
+    }
+  },
+  "connection": {
+    "nodes": [
+      "connected_block_id"
+    ]
+  }
+}

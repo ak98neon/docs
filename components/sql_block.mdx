@@ -1,0 +1,81 @@
+---
+title: 'SQL Client Block'
+description: 'How SQL Client block works'
+icon: 'database'
+---
+<Info>This block allows querying and interacting with SQL databases.</Info>
+
+## SQL Client
+
+### Description:
+Executes SQL queries against a relational database.
+
+Key Parameters:
+
+> **params.query** - The SQL query to execute.
+
+> **params.connectionConfig.databaseType** - The type of database (e.g., `"postgres"`, `"mysql"`, `"oracle"`, `"oracle"`, `"sqLite"`, `"mssQL"`).
+
+> **params.connectionConfig.databaseHost** - The database server hostname or IP.
+
+> **params.connectionConfig.databasePort** - The port number for the database (default for PostgreSQL is `5432`).
+
+> **params.connectionConfig.databaseUser** - The username for authentication.
+
+> **params.connectionConfig.databasePassword** - The password for authentication.
+
+> **params.connectionConfig.databaseName** - The target database name.
+
+> **params.connectionConfig.sslMode** - SSL mode settings (e.g., `"disable"` for no SSL).
+
+Connections:
+
+- **Input:** Receives execution from preceding blocks.
+- **Output:** Passes query results to the next block.
+
+Use Cases:
+
+- Fetching data from databases for further processing.
+- Updating or inserting records into tables.
+- Combining with other blocks for advanced workflows.
+
+### Code Example
+
+1. **block_id** - Unique identifier for the SQL Client block.
+2. **connected_block_id** - Unique identifier for the next block.
+
+```json
+{
+  "_id": "block_id",
+  "version": "1.0",
+  "type": "SQL_CLIENT",
+  "payload": {
+    "name": "sql-client-0",
+    "data": {
+      "action": "",
+      "params": {
+        "params": {
+          "triggerParams": [],
+          "query": "",
+          "connectionConfig": {
+            "databaseType": "postgres",
+            "databaseName": "test",
+            "databaseHost": "localhost",
+            "databasePort": 5432,
+            "databaseUser": "postgres",
+            "databasePassword": "postgres",
+            "sslMode": "disable"
+          }
+        },
+        "lang": "sql",
+        "version": "0.0.1",
+        "query": "SELECT * FROM tss_tasks;"
+      }
+    }
+  },
+  "connection": {
+    "nodes": [
+      "connected_block_id"
+    ]
+  }
+}
